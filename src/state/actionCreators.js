@@ -15,8 +15,8 @@ export const updateZipValue = (index, newValue) => {
 export const fetchCoordinates = (inputNumber, zipCode) => dispatch =>  {
     console.log(zipCode);
     fetch(`https://geocode.xyz/?locate="${zipCode}"&geoit=json`)
-    .then(response => response.json())
-    .then(rawData => dispatch({
+    .then(response => response.ok ? response.json() : null)
+    .then(rawData => rawData && dispatch({
         type: GENERATE_COORDINATES,
         payload: {
             inputNumber,
@@ -35,8 +35,8 @@ export const calculateMidpoint = (coords1, coords2) => dispatch => {
     }
     console.log(midwayCoordinates);
     fetch(`https://geocode.xyz/${midwayCoordinates.lat},${midwayCoordinates.lon}?geoit=json`)
-    .then(response => response.json())
-    .then(rawData => dispatch( {
+    .then(response => response.ok ? response.json() : null)
+    .then(rawData => rawData && dispatch( {
         type: SET_MIDPOINT,
         payload: {
             lat: rawData.latt,

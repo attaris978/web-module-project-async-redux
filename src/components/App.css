@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-size:1.5rem;
 }
 
 .App-logo {
@@ -35,4 +36,16 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.logo {
+  margin:auto;
+  margin-bottom:20px;
+  margin-top:20px;
+  width:505px;
+  height:160px;
+  background-image:url("/public/meetpointlogo.gif");
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size:cover;
 }
